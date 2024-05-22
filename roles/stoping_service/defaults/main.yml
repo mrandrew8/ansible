@@ -1,0 +1,4 @@
+---
+# defaults file for stoping_service role
+service_name: my.service
+

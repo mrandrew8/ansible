@@ -1,0 +1,6 @@
+---
+# tasks file for starting_service role
+- name: stop service
+  ansible.builtin.service:
+    name: "{{service_name}}"
+    state: "stopped"

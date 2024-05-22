@@ -1,0 +1,7 @@
+all:
+  dev:
+    hosts: 127.0.0.1
+  test:
+    hosts: 1.1.1.1
+  prod:
+    hosts: 2.2.2.2

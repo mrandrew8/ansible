@@ -1,0 +1,20 @@
+---
+- name: stop service
+  command: /u/app/myapp.jar stop
+
+
+- name: start service
+  command: /u/app/myapp.jar start
+
+
+- name: stop service
+  ansible.builtin.service:
+    name: "service"
+    state: "stopped"
+
+
+- name: start sevice
+  ansible.builtin.service:
+    name: "service"
+    state: "started"
+

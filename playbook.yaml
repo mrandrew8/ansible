@@ -1,0 +1,9 @@
+---
+- name: my_play1
+  hosts: dev
+  roles:
+    - stoping_service
+    - uploading_archive
+    - backup_old_files
+    - update_files
+    - starting_service

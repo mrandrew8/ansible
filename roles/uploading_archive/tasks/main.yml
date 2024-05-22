@@ -1,0 +1,21 @@
+---
+# tasks file for uploading_archive role
+- name: Create dir tmp
+  ansible.builtin.file:
+    path: "{{tmp_dir}}"
+    state: directory
+    mode: '0755'
+
+- name: Get latest image from Nexus
+  get_url:
+    url: "{{ nexus_url }}"
+    dest: "{{ destination }}"
+    username: "{{ username }}"
+    password: "{{ password }}"
+#    notify: stop service
+
+- name: Unarchive archive.zip
+  unarchive:
+    src: "{{ destination }}"
+    dest: "{{tmp_dir}}"
+    remote_src: yes

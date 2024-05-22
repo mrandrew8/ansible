@@ -1,0 +1,30 @@
+---
+# tasks file for update_files role
+- name: Find jar files
+  find: 
+    paths: "{{tmp_dir}}"
+    patterns: "*.jar"
+  register: jar_files
+
+- name: Move  
+  copy: 
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    remote_src: yes
+    mode: "{{ item.mode }}"
+  with_items:
+    - { src: '/tmp/path/to/dir/app/application.yml', dest: '/path/to/dir/app/application.yml', mode: '0644' }
+    - { src: '/tmp/path/to/dir/app/config.conf', dest: '/path/to/dir/app/config.conf', mode: '0644' }
+    - { src: "{{ jar_files.files }}", dest: '/path/to/dir/app/my_app.jar', mode: '0755' }
+    - { src: '/path/to/dir/app/tmp/logback-graylog.xml', dest: '/path/to/dir/app/logback-graylog.xml', mode: '0755' }
+  become: true
+  become_user: "{{user1}}"
+  notify: "start service"
+
+- name: Delete content & directory
+  ansible.builtin.file:
+    path: "{{tmp_dir}}"
+    state: absent
+  become: true
+  become_user: "{{user1}}"
+

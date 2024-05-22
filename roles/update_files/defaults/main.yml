@@ -1,0 +1,4 @@
+---
+# defaults file for update_files role
+tmp_dir: /tmp/path/to/dir/app/
+user1: srv

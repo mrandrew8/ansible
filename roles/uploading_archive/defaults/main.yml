@@ -1,0 +1,9 @@
+---
+# defaults file for uploading_archive role
+tmp_dir: /tmp/path/to/dir/app/
+destination: /path/to/archive.zip
+username: Vas9
+password: 1q2w3e4r
+nexus_url: https://ftp.myrepo.local/path/to/archive.zip
+group_id: testgroup
+artifact_id: uuid

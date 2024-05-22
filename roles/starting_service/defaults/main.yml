@@ -1,0 +1,8 @@
+---
+# defaults file for starting_service role
+service_name: "myapp.service"
+port_number: 8080
+host_ip: 127.0.0.1
+connect_timeout_sec: 3
+delay_Sec: 3
+timeout_sec: 10
